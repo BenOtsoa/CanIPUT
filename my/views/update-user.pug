@@ -1,0 +1,13 @@
+extend layout
+
+block content
+    h1= 'Nouveau Nom'
+    form(method='POST', action=`/users/${path}?_method=PUT`)
+        div    
+            label(for='name') name : 
+            input#name(type='text', name='name', placeholder='your name')
+        button(type='submit') SEND
+
+            
+  
+    
