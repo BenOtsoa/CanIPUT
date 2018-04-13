@@ -26,30 +26,25 @@ const router = express.Router();
 //   res.send("Hey ! My name it's a DELETE ID " + req.params.id);
 // });
 
-
 /* CAN I PUT SOME  DELETE */
 
 /* Affiche le form */
 
-
 router.get("/:name([a-zA-Z]+)", function(req, res, next) {
-  res.render("update-user", {path: req.params.name});
-})
-router.get("/:name([a-zA-Z]+)", function(req, res, next) {
-  res.render("update-user", {name: req.params.name});
-})
+  res.render("update-user", { name: req.params.name });
+});
 
 router.put("/:name", function(req, res, next) {
   res.send(`The new name is ${req.body.name}`);
-  console.log(req.body.name)
-})
+  console.log(req.body.name);
+});
 
-router.get("/:numero(\\d+)", function(req, res, next) {
-  res.render("delete-user", {numb: req.params.numero})
-})
+router.get("/:id(\\d+)", function(req, res, next) {
+  res.render("delete-user", { id: req.params.id });
+});
 
-router.delete("/:numero(\\d+)", function(req, res, next) {
-  res.send("delete-user", {numb: `No more user with ID ` + req.body.numero})
-})
+router.delete("/:id", function(req, res, next) {
+  res.send(`The deleted id is ${req.body.id}`);
+});
 
 module.exports = router;
